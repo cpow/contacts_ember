@@ -1,0 +1,15 @@
+<h1>Contacts</h1>
+
+<ol class="contacts">
+  {{#each model as |contact|}}
+    <li>
+      {{#link-to "contacts.show" contact}}
+        {{contact.name}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ol>
+
+<section class="contact-show">
+  {{outlet}}
+</section>
