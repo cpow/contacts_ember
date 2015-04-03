@@ -1,23 +1,23 @@
 <form {{action "triggerAction" on="submit"}}>
   <div>
-    {{input value=contact.firstName placeholder="Contact's first name"}}
+    {{input id="first-name" value=contact.firstName placeholder="Contact's first name"}}
   </div>
   <div>
-    {{input value=contact.lastName placeholder="Contact's last name"}}
+    {{input id="last-name" value=contact.lastName placeholder="Contact's last name"}}
   </div>
   <div>
-    {{input value=contact.email placeholder="Contact's email"}}
+    {{input id="email" value=contact.email placeholder="Contact's email"}}
   </div>
 
   <h3>Phone Numbers</h3>
   <div>
     {{#each contact.phones as |phone|}}
-      {{phone-number-field value=phone.number placeholder="Phone Number"}}
+      {{input class="phone-number" value=phone.number placeholder="Phone Number"}}
       {{view "select" value=phone.type content=phoneTypes}}
       <button {{action "removePhone" phone}}>Remove</button>
       <br />
       <br />
-      
+
     {{/each}}
     <div>
       <button {{action "addPhone"}}>Add Phone</button>
@@ -25,5 +25,5 @@
     <br />
   </div>
 
-  <input type="submit" {{bind-attr value=buttonText disabled=isInvalid}}/>
+  <input type="submit" class="submit" {{bind-attr value=buttonText disabled=isInvalid}}/>
 </form>

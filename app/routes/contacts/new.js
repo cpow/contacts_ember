@@ -10,7 +10,7 @@ export default Ember.Route.extend({
 
   deactivate: function() {
     const contact = this.get("controller.model");
-    
+
     if (!contact.get("isSaving") && contact.get("isNew")) {
       contact.deleteRecord();
     }
